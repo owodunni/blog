@@ -10,7 +10,7 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "test": "vitest",
     "lint": "prettier --check . && eslint .",
-    "format": "prettier --write ."
+    "fix": "eslint . --cache --fix && prettier --write ."
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "^4.0.1",

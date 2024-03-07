@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-		"prepare": "svelte-kit sync",
+    "prepare": "svelte-kit sync",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
+    "prod": "node --enable-source-maps -r dotenv/config build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "test": "vitest",
@@ -36,6 +37,7 @@
   "type": "module",
   "dependencies": {
     "@directus/sdk": "^15.0.2",
+    "dotenv": "^16.4.5",
     "svelte-markdown": "^0.4.1"
   }
 }

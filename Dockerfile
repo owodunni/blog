@@ -5,4 +5,4 @@ RUN npm ci
 COPY . .
 RUN npm run build
 ENV NODE_ENV=production
-CMD [ "node", "--enable-source-maps", "build" ]
+CMD [ "node", "--enable-source-maps", "-r", "dotenv/config", "build" ]

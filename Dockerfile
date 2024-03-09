@@ -1,8 +1,9 @@
-FROM node:20-alpine AS builder
+FROM oven/bun:1
 WORKDIR /app
 COPY package*.json .
-RUN npm ci
+COPY bun.lockb .
+RUN bun install --frozen-lockfile
 COPY . .
-RUN npm run build
+RUN bun run build
 ENV NODE_ENV=production
-CMD [ "node", "--enable-source-maps", "-r", "dotenv/config", "build" ]
+CMD [ "bun", "build/index.js" ]

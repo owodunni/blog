@@ -5,4 +5,4 @@ RUN bun install --frozen-lockfile
 COPY . .
 RUN bun run build
 ENV NODE_ENV=production
-CMD [ "bun", "build/index.js" ]
+CMD [ "bun", "index.ts" ]

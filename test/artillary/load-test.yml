@@ -24,16 +24,16 @@ config:
   apdex:
     threshold: 100
   ensure:
-      thresholds:
-        - http.response_time.p99: 100
-        - http.response_time.p95: 75
+    thresholds:
+      - http.response_time.p99: 100
+      - http.response_time.p95: 75
 scenarios:
   - flow:
       - loop:
-        - get:
-            url: "/posts"
-        - get:
-            url: "/"
-        - get:
-            url: "/posts/setting-up-a-blog-part-1"
+          - get:
+              url: '/posts'
+          - get:
+              url: '/'
+          - get:
+              url: '/posts/setting-up-a-blog-part-1'
         count: 5

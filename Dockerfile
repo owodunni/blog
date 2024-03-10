@@ -1,9 +1,26 @@
-FROM oven/bun:1
+FROM node:20-alpine AS builder
 WORKDIR /app
 COPY package*.json .
-COPY bun.lockb .
-RUN bun install --frozen-lockfile
+RUN npm ci 
 COPY . .
-RUN bun run build
+RUN npm run build && npm prune --omit=dev
 ENV NODE_ENV=production
-CMD [ "bun", "build/index.js" ]
+
+FROM golang:1.21-alpine AS server
+
+LABEL stage=builder
+
+RUN addgroup -S myapp \
+    && adduser -S -u 10000 -g myapp myapp
+
+ENV GO111MODULE=on
+
+WORKDIR /app
+COPY go.mod go.sum main.go .
+COPY --from=builder /app/build/ /app/build/
+
+RUN CGO_ENABLED=0 GOOS=linux go build \
+    -o /app/bin/service \
+    .
+
+ENTRYPOINT ["/app/bin/service"]

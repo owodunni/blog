@@ -7,4 +7,4 @@ RUN bun run build
 ENV NODE_ENV=production
 RUN apt update && apt install -y nginx
 
-CMD [ "bun", "index.ts" ]
+CMD [ "bun", "build/index.js" ]

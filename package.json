@@ -38,6 +38,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@isaacs/ttlcache": "^1.4.1",
     "svelte-markdown": "^0.4.1"
   }
 }

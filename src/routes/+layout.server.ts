@@ -1,2 +1,2 @@
 export const prerender = false;
-export const csr = false;
+export const csr = import.meta.env.DEV;

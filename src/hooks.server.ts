@@ -29,13 +29,13 @@ export const handle: Handle = async ({ event, resolve }) => {
   // we make ... it will return an empty object if
   // the page wasn't cached or a populated object
   // containing body and headers
-  let cached = cache.get<{body: string, [k: string]: string }>(key);
+  let cached = cache.get<{ body: string; [k: string]: string }>(key);
   if (!cached?.body) {
     // if it wasn't cached, we render the pages
     const response = await resolve(event, params);
 
     // then convert it into a cachable object
-    cached = {body: await response.text(),...Object.fromEntries(response.headers.entries())};
+    cached = { body: await response.text(), ...Object.fromEntries(response.headers.entries()) };
 
     if (response.status === 200) {
       // and write it to the Redis cache ...
@@ -43,12 +43,11 @@ export const handle: Handle = async ({ event, resolve }) => {
       // we don't await it, so we don't delay
       // returning the response to the client
       // (the cache write is "fire and forget")
-      if(!isDev)
-      cache.set(key, cached);
+      if (!isDev) cache.set(key, cached);
     }
   }
 
-  const { body, ...headers} = cached;
-  if(!isDev && !headers["Cache-Control"]) headers["Cache-Control"] = "max-age:60000"
-  return new Response(body, { headers: new Headers(headers) })
+  const { body, ...headers } = cached;
+  if (!isDev && !headers['Cache-Control']) headers['Cache-Control'] = 'max-age:60000';
+  return new Response(body, { headers: new Headers(headers) });
 };

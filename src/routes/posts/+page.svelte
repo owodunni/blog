@@ -4,6 +4,13 @@
   export let data: PageData;
 </script>
 
-{#each data.posts as { slug, title }}
-  <a href={`/posts/${slug}`}>{title}</a>
-{/each}
+<main>
+  <h1>Posts</h1>
+  <article>
+    <ul>
+      {#each data.posts as { slug, title }}
+        <li><p><a href={`/posts/${slug}`}>{title}</a></p></li>
+      {/each}
+    </ul>
+  </article>
+</main>

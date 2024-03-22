@@ -5,4 +5,6 @@
   export let data: PageData;
 </script>
 
-<SvelteMarkdown source={data.post.content} />
+<article>
+  <SvelteMarkdown source={data.post.content} />
+</article>

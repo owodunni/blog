@@ -4,4 +4,6 @@ COPY . .
 
 RUN deno task cache
 
-CMD [ "deno", "task", "build" ]
+EXPOSE 3000
+
+CMD [ "deno", "task", "start" ]

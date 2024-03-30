@@ -8,11 +8,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js
-        uses: actions/setup-node@v4
+      - uses: denoland/setup-deno@v1
         with:
-          node-version: '20.x'
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run check
-      - run: npm test
+          deno-version: v1.x
+      # Check if the code is formatted according to Deno's default
+      # formatting conventions.
+      - run: deno fmt --check
+
+      # Scan the code for syntax errors and style issues. If
+      # you want to use a custom linter configuration you can add a configuration file with --config <myconfig>
+      - run: deno lint

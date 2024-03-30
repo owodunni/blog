@@ -12,7 +12,7 @@ export default function App({ Component }: PageProps) {
           <nav>
             <a href="/">Home</a>
             {" | "}
-            <a href="/posts/">Posts</a>
+            <a href="/posts">Posts</a>
           </nav>
         </header>
         <Component />

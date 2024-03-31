@@ -1,5 +1,5 @@
 import { type PageProps } from "$fresh/server.ts";
-import { join } from "$std/path/mod.ts";
+import { join } from "$std/path/join.ts";
 
 const cssFile = join(Deno.cwd(), "static/styles.css");
 const css = await Deno.readTextFile(cssFile);

@@ -3,13 +3,31 @@ import { directus } from "../../lib/api/index.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { toPost } from "../../lib/api/transform.ts";
 import { Post } from "../../lib/api/types.ts";
-import { marked } from "npm:marked";
+import { Marked } from "npm:marked";
+import { markedHighlight } from "npm:marked-highlight";
+import hljs from "npm:highlight.js/lib/common";
+import { Head } from "$fresh/runtime.ts";
+import { join } from "$std/path/join.ts";
 
-export const handler: Handlers<{ post: Post }> = {
+const marked = new Marked(
+  markedHighlight({
+    langPrefix: "hljs language-",
+    highlight(code, lang) {
+      const language = hljs.getLanguage(lang) ? lang : "plaintext";
+      return hljs.highlight(code, { language }).value;
+    },
+  }),
+);
+
+const cssFile = join(Deno.cwd(), "static/atom-one-light.css");
+let css = "";
+
+export const handler: Handlers<{ post: Post; css: string }> = {
   async GET(_req, ctx) {
     const client = directus(fetch);
 
     const slug = ctx.params.slug;
+    css = css || await Deno.readTextFile(cssFile);
 
     const data = await client.request(
       readItems("posts", { filter: { slug: { _eq: slug } } }),
@@ -28,15 +46,25 @@ export const handler: Handlers<{ post: Post }> = {
         post,
         (content) => marked.parse(content, { async: false }) as string,
       ),
+      css,
     });
   },
 };
 
-export default function Post({ data }: PageProps<{ post: Post }>) {
+export default function Post({ data }: PageProps<{ post: Post; css: string }>) {
+  const article = `<header>
+<h1>${data.post.title}</h1>
+</header>
+${data.post.content}`;
+
   return (
-    <main>
-      <h1>{data.post.title}</h1>
-      <article dangerouslySetInnerHTML={{ __html: data.post.content }} />
-    </main>
+    <>
+      <Head>
+        <style>{data.css}</style>
+      </Head>
+      <main>
+        <article dangerouslySetInnerHTML={{ __html: article }} />
+      </main>
+    </>
   );
 }

@@ -32,6 +32,5 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
-  },
-  "unstable": ["kv"]
+  }
 }

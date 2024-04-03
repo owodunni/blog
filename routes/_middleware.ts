@@ -3,6 +3,11 @@ import { FreshContext } from "$fresh/server.ts";
 
 const cacheRoutes = ["/posts", "/posts/:slug"];
 
+const cache = new Map<
+  string,
+  { body: string; headers: Record<string, string> }
+>();
+
 export async function handler(
   req: Request,
   ctx: FreshContext,
@@ -10,11 +15,7 @@ export async function handler(
   if (!req.headers.get("Accept")?.includes("text/html")) return ctx.next();
   if (!cacheRoutes.includes(ctx.route)) return ctx.next();
 
-  const kv = await Deno.openKv();
-  let resp = (await kv.get<{ body: string; headers: Record<string, string> }>([
-    ctx.url.href,
-  ])).value;
-
+  let resp = cache.get(ctx.url.href);
   if (resp) {
     return new Response(resp.body, { headers: resp.headers, status: 200 });
   }
@@ -31,7 +32,7 @@ export async function handler(
   };
 
   if (result.status === 200) {
-    await kv.set([ctx.url.href], resp);
+    cache.set(ctx.url.href, resp);
   }
 
   reader?.releaseLock();

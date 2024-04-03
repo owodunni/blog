@@ -21,6 +21,7 @@ export async function handler(
   }
 
   const result = await ctx.next();
+  result.headers.set("Cache-control", "max-age=300")
 
   const reader = result.body?.getReader();
 

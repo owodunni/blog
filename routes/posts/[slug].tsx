@@ -26,9 +26,9 @@ export const handler: Handlers<{ post: Post; css: string }> = {
   async GET(_req, ctx) {
     const client = directus(fetch);
 
-    const slug = ctx.params.slug;
     css = css || await Deno.readTextFile(cssFile);
 
+    const slug = ctx.params.slug;
     const data = await client.request(
       readItems("posts", { filter: { slug: { _eq: slug } } }),
     );

@@ -1,12 +1,14 @@
 /// <reference lib="deno.unstable" />
 import { FreshContext } from "$fresh/server.ts";
 
-const cacheRoutes = ["/posts", "/posts/:slug"];
+const cacheRoutes = ["/posts", "/posts/:slug", "/"];
 
 const cache = new Map<
   string,
   { body: string; headers: Record<string, string> }
 >();
+
+let css = "";
 
 export async function handler(
   req: Request,
@@ -21,7 +23,7 @@ export async function handler(
   }
 
   const result = await ctx.next();
-  result.headers.set("Cache-control", "max-age=300")
+  result.headers.set("Cache-control", "max-age=300");
 
   const reader = result.body?.getReader();
 
@@ -31,6 +33,17 @@ export async function handler(
     ),
     headers: Object.fromEntries(result.headers.entries()),
   };
+
+  if (!css) {
+    const cssResp = await fetch("http://localhost:3000/styles.css");
+
+    css = await cssResp.text();
+  }
+
+  resp.body = resp.body.replace(
+    `<link rel="stylesheet" href="/styles.css"/>`,
+    `<style>${css}</style>`,
+  );
 
   if (result.status === 200) {
     cache.set(ctx.url.href, resp);

@@ -2,7 +2,7 @@ import { readItems } from "npm:@directus/sdk";
 import { directus } from "../../lib/api/index.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { toPost } from "../../lib/api/transform.ts";
-import { Post } from "../../lib/api/types.ts";
+import type { Post } from "../../lib/api/types.ts";
 import { Marked } from "npm:marked";
 import { markedHighlight } from "npm:marked-highlight";
 import hljs from "npm:highlight.js/lib/common";

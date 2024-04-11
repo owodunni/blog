@@ -1,4 +1,5 @@
 import { type PageProps } from "$fresh/server.ts";
+import Navbar from "../components/navbar.tsx";
 
 export default function App({ Component }: PageProps) {
   return (
@@ -9,14 +10,8 @@ export default function App({ Component }: PageProps) {
         <title>Alexander's blog</title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
-      <body>
-        <header>
-          <nav>
-            <a href="/">Home</a>
-            {" | "}
-            <a href="/posts">Posts</a>
-          </nav>
-        </header>
+      <body className="mx-auto max-w-3xl prose">
+        <Navbar />
         <Component />
         <footer>
           <p>

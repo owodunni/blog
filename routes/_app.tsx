@@ -10,7 +10,7 @@ export default function App({ Component }: PageProps) {
         <title>Alexander's blog</title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
-      <body className="mx-auto max-w-3xl prose">
+      <body className="mx-auto max-w-xl prose px-2">
         <Navbar />
         <Component />
         <footer>

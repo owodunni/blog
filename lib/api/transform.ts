@@ -1,13 +1,13 @@
 import type { Post, PostSchema } from "./types.ts";
 
-export function toPost(
+export async function toPost(
   post: PostSchema,
-  transform?: (markdown: string) => string,
-): Post {
+  transform?: (markdown: string) => Promise<string>,
+): Promise<Post> {
   return {
     title: post.Title,
     content: transform && typeof transform === "function"
-      ? transform(post.content)
+      ? await transform(post.content)
       : post.content,
     user: post.user_created,
     created: post.user_created,

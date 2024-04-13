@@ -4,9 +4,9 @@ import {
   rest,
   RestClient,
   staticToken,
-} from "npm:@directus/sdk";
+} from "@directus/sdk";
 import type { BlogSchema } from "./types.ts";
-import { load } from "https://deno.land/std@0.220.0/dotenv/mod.ts";
+import { load } from "$std/dotenv/mod.ts";
 
 const env = await load();
 

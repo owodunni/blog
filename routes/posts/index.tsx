@@ -1,5 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { readItems } from "npm:@directus/sdk";
+import { readItems } from "@directus/sdk";
 import { directus } from "../../lib/api/index.ts";
 import { toPost } from "../../lib/api/transform.ts";
 import type { Post } from "../../lib/api/types.ts";
@@ -14,7 +14,7 @@ export const handler: Handlers<Posts> = {
       readItems("posts", { filter: { status: { _eq: "published" } } }),
     );
 
-    return ctx.render({ posts: data.map(toPost) });
+    return ctx.render({ posts: await Promise.all(data.map(toPost)) });
   },
 };
 

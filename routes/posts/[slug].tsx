@@ -24,7 +24,7 @@ const marked = new Marked(markedOptions);
 const renderer = {
   image(href: string, title: string, text: string) {
     const width = 1000;
-    const height = 600;
+    const height = 627;
     return `<picture>
     ${calculateSourceSet({href, width, height}).map(({type, srcset})=>`<source type=${type} srcset="${srcset}" sizes=${width}px />`).join('')}
     <img

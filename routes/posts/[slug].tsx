@@ -9,7 +9,9 @@ import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js/lib/common";
 import { Head } from "$fresh/runtime.ts";
 import { join } from "$std/path/join.ts";
-import render from 'preact-render-to-string/jsx'
+import render from "preact-render-to-string/jsx";
+import { getAsset2 } from "../../lib/images/index.ts";
+import { blurhashFromURL, generateBlurhashURI } from "../../lib/images/blur.ts";
 
 // Override function
 const markedOptions = markedHighlight({
@@ -22,16 +24,51 @@ const markedOptions = markedHighlight({
 
 const marked = new Marked(markedOptions);
 
-// Override function
-const renderer = {
-  image(href: string, title: string, text: string) {
-    const width = 800;
-    const height = 400;
-    return render(<Image width={width} height={height} href={href} title={title} text={text} />)
-  },
-};
+async function dataUrl(href: string): Promise<string> {
+  const blob = await fetch(href).then((r) => r.blob());
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.readAsDataURL(blob);
+  });
+}
 
-marked.use({ renderer });
+marked.use({
+  async: true,
+  async walkTokens(token) {
+    if (token.type === "image") {
+      const { href, text, title } = token;
+      const width = 800;
+      const height = 400;
+      const ref = getAsset2(href, {
+        width: 800,
+        height: 400,
+        format: "jpg",
+        quality: 80,
+      });
+
+      const hash = await blurhashFromURL(ref)
+
+      const placeholderHref = await generateBlurhashURI(hash.encoded, hash.width, hash.height);
+
+      token.title = render(
+        <Image
+          width={width}
+          height={height}
+          href={href}
+          title={title}
+          text={text}
+          placeholderHref={placeholderHref}
+        />,
+      );
+    }
+  },
+  renderer: {
+    image(_: string, title: string | null) {
+      return title!;
+    },
+  },
+});
 
 const cssFile = join(Deno.cwd(), "static/atom-one-light.css");
 let css = "";

@@ -3,7 +3,7 @@ type ImageType = "image/avif" | "image/webp" | "image/jpeg";
 
 export function calculateSourceSet(
   { href, width, height }: { href: string; width: number; height: number },
-): { type: ImageType; srcset: string; }[] {
+): { type: ImageType; srcset: string }[] {
   const aspectRatio = width / height;
   const sizes = [640, 768, 1024, 1280];
   const formats = [
@@ -27,7 +27,7 @@ export function calculateSourceSet(
         });
         return `${src} ${w}w`;
       })
-      .join(",\r\n")
+      .join(",\r\n"),
   }));
 }
 

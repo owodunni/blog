@@ -16,6 +16,8 @@
       "npm:marked": "npm:marked@12.0.1",
       "npm:marked-highlight": "npm:marked-highlight@2.1.1_marked@12.0.1",
       "npm:postcss@8.4.35": "npm:postcss@8.4.35",
+      "npm:preact-render-to-string": "npm:preact-render-to-string@6.4.2_preact@10.20.2",
+      "npm:preact-render-to-string@6.4.2": "npm:preact-render-to-string@6.4.2_preact@10.20.2",
       "npm:tailwindcss@3.4.1": "npm:tailwindcss@3.4.1_postcss@8.4.35"
     },
     "jsr": {
@@ -949,6 +951,21 @@
           "source-map-js": "source-map-js@1.2.0"
         }
       },
+      "preact-render-to-string@6.4.2_preact@10.20.2": {
+        "integrity": "sha512-Sio5SvlyZSAXHuvnMgYzVQd67lNIuQe4uSjJ+2gfpJNC6L8zoHQR5xV7B/EjIqrAYWVyJ2eACkTCxVrIzZi6Vw==",
+        "dependencies": {
+          "preact": "preact@10.20.2",
+          "pretty-format": "pretty-format@3.8.0"
+        }
+      },
+      "preact@10.20.2": {
+        "integrity": "sha512-S1d1ernz3KQ+Y2awUxKakpfOg2CEmJmwOP+6igPx6dgr6pgDvenqYviyokWso2rhHvGtTlWWnJDa7RaPbQerTg==",
+        "dependencies": {}
+      },
+      "pretty-format@3.8.0": {
+        "integrity": "sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==",
+        "dependencies": {}
+      },
       "queue-microtask@1.2.3": {
         "integrity": "sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==",
         "dependencies": {}
@@ -1511,6 +1528,7 @@
     "https://esm.sh/highlight.js@11.9.0/lib/common": "624c41366d73e2a6d3b8509ea969dce9da6cacbd1d1ac8426f54559879a9e4ef",
     "https://esm.sh/marked-highlight@2.1.1": "ac95f1656c3bdda70f5c9c066a27933076d7f96468db69675955f1c21007fe8d",
     "https://esm.sh/marked@12.0.1": "9dbbcdac33edd6c53e5ac6006c4dfefcec4495ef9b8ee807cf272488137e2afe",
+    "https://esm.sh/preact-render-to-string@6.4.2/jsx": "ace343bcd3575dd5741ef31e831b72e3167f7db15708ca35ef7879683ea77d16",
     "https://esm.sh/preact@10.19.6": "281b115a9b79918c6b73382b4e818d6f9e48db9064b7fd4f75a45a4edee54145",
     "https://esm.sh/preact@10.19.6/debug": "0e16b3e9f45372501b91ecf69b1bcaf2b2dad3ac470ce75113d957acbd5e277d",
     "https://esm.sh/preact@10.19.6/hooks": "3037d71a7794c70bacb2da5dd9520334c6a24b3a7a75a2eeec9f025f8dc549f1",
@@ -1520,6 +1538,7 @@
     "https://esm.sh/stable/preact@10.19.6/denonext/hooks.js": "60270845e547f2e2c8d94cdb0bf9a0376e5b02bd6bb2b8694720274c2378890e",
     "https://esm.sh/stable/preact@10.19.6/denonext/jsx-runtime.js": "97e9eeb40443de53a8cb3b70f264d04db2bbfc5c2298fdb15d1c471283ccd6aa",
     "https://esm.sh/stable/preact@10.19.6/denonext/preact.mjs": "68491395d287895f4d697e403ded5b0ebb8fed0494f9e870c422bc017e5e52f5",
+    "https://esm.sh/stable/preact@10.20.2/denonext/preact.mjs": "f418bc70c24b785703afb9d4dea8cdc1e315e43c8df620a0c52fd27ad9bd70eb",
     "https://esm.sh/v135/@babel/helper-validator-identifier@7.22.20/denonext/helper-validator-identifier.mjs": "1ad312a9040d1f3b096e90a3e6a9da7ecfc99662140852fe3862a316c2591c93",
     "https://esm.sh/v135/@directus/sdk@15.1.0/denonext/sdk.mjs": "2be19f45de999ca6ca38d5fb436f8340a6feb295605e77d6bde32409863aad1d",
     "https://esm.sh/v135/@directus/system-data@1.0.2/denonext/system-data.mjs": "2fde1e4ebd6a5d07d63d5cac415ea0976eaf0eaf686722a3571f80ff846e014c",
@@ -1528,7 +1547,8 @@
     "https://esm.sh/v135/highlight.js@11.9.0/denonext/lib/common.js": "88a65b58e767620d6c7e75b609625181059a48087b60593152b07dbc7c9a15e2",
     "https://esm.sh/v135/marked-highlight@2.1.1/denonext/marked-highlight.mjs": "b32b4f087f7f8ac3452ce38e09f6efa44463e6b0cbfeb33629f16e2224629c9b",
     "https://esm.sh/v135/marked@12.0.1/denonext/marked.mjs": "5094eca95f9067e7abacf6449797deabcff0fb46d3e94f63f60c6606af0b95fe",
-    "https://esm.sh/v135/preact-render-to-string@6.3.1/X-ZS8q/denonext/preact-render-to-string.mjs": "bcaceb8c3938310aee3dd4f7b6f2136cf0b2b890988c2e6679485e052e76e920"
+    "https://esm.sh/v135/preact-render-to-string@6.3.1/X-ZS8q/denonext/preact-render-to-string.mjs": "bcaceb8c3938310aee3dd4f7b6f2136cf0b2b890988c2e6679485e052e76e920",
+    "https://esm.sh/v135/preact-render-to-string@6.4.2/denonext/jsx.js": "01392221464c6ec12164ec75bab7028327a7ffb34e99f1d50b44d0df88d2c95d"
   },
   "workspace": {
     "dependencies": [

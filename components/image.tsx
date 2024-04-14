@@ -17,8 +17,8 @@ export default function Image(
           srcset={srcset} />
       ))}
       <img
-        width={width}
-        height={height}
+        width={width.toString()}
+        height={height.toString()}
         src={getAsset2(href, { width, height, format: "jpg", quality: 80 })}
         loading="lazy"
         decoding="async"

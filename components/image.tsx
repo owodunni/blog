@@ -39,8 +39,6 @@ export default function Image(
           width={width.toString()}
           height={height.toString()}
           src={getAsset2(href, { width, height, format: "jpg", quality: 80 })}
-          loading="lazy"
-          decoding="async"
           alt={text}
           {...(title && { title })}
         />

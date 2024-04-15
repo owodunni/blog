@@ -47,9 +47,13 @@ marked.use({
         quality: 80,
       });
 
-      const hash = await blurhashFromURL(ref)
+      const hash = await blurhashFromURL(ref);
 
-      const placeholderHref = await generateBlurhashURI(hash.encoded, hash.width, hash.height);
+      const placeholderHref = await generateBlurhashURI(
+        hash.encoded,
+        hash.width,
+        hash.height,
+      );
 
       token.title = render(
         <Image

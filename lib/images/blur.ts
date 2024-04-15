@@ -1,4 +1,4 @@
-import { encode, decode } from "npm:blurhash";
+import { decode, encode } from "npm:blurhash";
 import sharp from "npm:sharp";
 import { Buffer } from "$std/io/buffer.ts";
 
@@ -76,7 +76,7 @@ export const generateBlurhashURI = async (
   options = {
     size: 16,
     quality: 40,
-  }
+  },
 ) => {
   const hashWidth = options?.size;
   const hashHeight = Math.round(hashWidth * (height / width));
@@ -96,5 +96,7 @@ export const generateBlurhashURI = async (
     })
     .toBuffer(); // Here also possible to do whatever with your image, e.g. save it or something else.
 
-  return `data:image/jpeg;base64,${btoa(String.fromCharCode(...new Uint8Array(resizedImageBuf)))}`;
-}
+  return `data:image/jpeg;base64,${
+    btoa(String.fromCharCode(...new Uint8Array(resizedImageBuf)))
+  }`;
+};

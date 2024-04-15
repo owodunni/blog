@@ -15,8 +15,8 @@ export default function Image(
       {placeholderHref
         ? (
           <img
+            className="block"
             aria-hidden={true}
-            className="absolute"
             width={width.toString()}
             height={height.toString()}
             src={placeholderHref}
@@ -26,7 +26,7 @@ export default function Image(
           />
         )
         : null}
-      <picture className="absolute">
+      <picture className="absolute block top-0 left-0">
         {calculateSourceSet({ href, width, height }).map(({ type, srcset }) => (
           <source
             type={type}
@@ -34,7 +34,7 @@ export default function Image(
           />
         ))}
         <img
-          class="opacity-0 transition-opacity duration-300"
+          className="opacity-0 transition-opacity duration-500"
           onLoad="this.style.opacity=1"
           width={width.toString()}
           height={height.toString()}

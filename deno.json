@@ -26,7 +26,6 @@
     "marked": "https://esm.sh/marked@12.0.1",
     "marked-highlight": "https://esm.sh/marked-highlight@2.1.1",
     "@directus/sdk": "https://esm.sh/@directus/sdk@15.1.0",
-    "highlight.js/": "https://esm.sh/highlight.js@11.9.0/",
     "preact-render-to-string/": "https://esm.sh/preact-render-to-string@6.4.2/"
   },
   "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" }

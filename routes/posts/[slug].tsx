@@ -6,7 +6,7 @@ import type { Post } from "../../lib/api/types.ts";
 import Image from "../../components/image.tsx";
 import { Marked } from "marked";
 import { markedHighlight } from "marked-highlight";
-import hljs from "highlight.js/lib/common";
+import hljs from "npm:highlight.js/lib/common";
 import { Head } from "$fresh/runtime.ts";
 import { join } from "$std/path/join.ts";
 import render from "preact-render-to-string/jsx";
@@ -118,7 +118,10 @@ ${data.post.content}`;
         <style>{data.css}</style>
       </Head>
       <main>
-        <article dangerouslySetInnerHTML={{ __html: article }} />
+        <article
+          className="prose"
+          dangerouslySetInnerHTML={{ __html: article }}
+        />
       </main>
     </>
   );

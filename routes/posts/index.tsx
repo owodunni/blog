@@ -21,13 +21,14 @@ export const handler: Handlers<Posts> = {
 export default function Posts({ data }: PageProps<Posts>) {
   return (
     <main>
-      <h1>Posts</h1>
+      <h1 className="text-display2 mb-xs3">Posts</h1>
+      <p className="text-subheading-light mb-l">Read my writing</p>
       <article>
-        <ul>
+        <ul className="flex flex-col space-y-m">
           {data.posts.map(({ slug, title }) => (
             <li>
-              <p>
-                <a href={`/posts/${slug}`}>{title}</a>
+              <p className="text-heading-light">
+                <a className="underline" href={`/posts/${slug}`}>{title}</a>
               </p>
             </li>
           ))}

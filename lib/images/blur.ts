@@ -1,6 +1,5 @@
-import { decode, encode } from "npm:blurhash";
-import sharp from "npm:sharp";
-import { Buffer } from "$std/io/buffer.ts";
+import { decode, encode } from "blurhash";
+import sharp from "sharp";
 
 export interface IOptions {
   size?: number;

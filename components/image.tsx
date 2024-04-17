@@ -35,6 +35,8 @@ export default function Image(
         ))}
         <img
           className="opacity-0 transition-opacity duration-500"
+          // deno-lint-ignore ban-ts-comment
+          // @ts-ignore
           onLoad="this.style.opacity=1"
           width={width.toString()}
           height={height.toString()}

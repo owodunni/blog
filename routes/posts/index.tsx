@@ -14,7 +14,9 @@ export const handler: Handlers<Posts> = {
       readItems("posts", { filter: { status: { _eq: "published" } } }),
     );
 
-    return ctx.render({ posts: await Promise.all(data.map(toPost)) });
+    return ctx.render({
+      posts: await Promise.all(data.map((post) => toPost(post))),
+    });
   },
 };
 

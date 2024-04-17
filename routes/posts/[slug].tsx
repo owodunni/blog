@@ -24,15 +24,6 @@ const markedOptions = markedHighlight({
 
 const marked = new Marked(markedOptions);
 
-async function dataUrl(href: string): Promise<string> {
-  const blob = await fetch(href).then((r) => r.blob());
-  return new Promise((resolve) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.readAsDataURL(blob);
-  });
-}
-
 marked.use({
   async: true,
   async walkTokens(token) {

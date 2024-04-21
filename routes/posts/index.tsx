@@ -23,8 +23,6 @@ export const handler: Handlers<Posts> = {
 export default function Posts({ data }: PageProps<Posts>) {
   return (
     <main>
-      <h1 className="text-display2 mb-xs3">Posts</h1>
-      <p className="text-subheading-light mb-l">Read my writing</p>
       <article>
         <ul className="flex flex-col space-y-m">
           {data.posts.map(({ slug, title }) => (

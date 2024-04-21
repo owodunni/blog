@@ -3,9 +3,9 @@ import typography from "tailwindcss/typography";
 
 const ratio = 1.618;
 
-const spacing = ["xs3", "xs2", "xs", "s", "m", "l", "xl", "xxl"] as const;
+const spacing = ["xxs", "xs", "s", "m", "l", "xl", "xxl"] as const;
 
-const remIndex = 4;
+const remIndex = 3;
 
 const spacingTokens = Object.fromEntries(
   spacing.map((

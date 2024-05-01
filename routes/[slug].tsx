@@ -118,7 +118,7 @@ ${data.post.content}`;
         <header className="relative flex flex-col items-center space-y-xs">
           <img
             src={"https://assets.jardoole.xyz/assets/ba664d07-798c-47d5-96fe-8fee6e521741.jpg?width=200&height=200&quality=0.8&format=webp"}
-            className="w-32 h-32 sm:w-xxl sm:h-xxl rounded-full"
+            className="w-16 h-16 sm:w-xl sm:h-xl rounded-full"
           />
           <a
             href="/"
@@ -126,7 +126,7 @@ ${data.post.content}`;
             className="absolute inset-0 z-10"
           >
           </a>
-          <h2 className="text-titleB-light">
+          <h2 className="text-titleC-light">
             Alexander Poole Jardén
           </h2>
         </header>

@@ -15,6 +15,7 @@ export interface PostSchema {
   Title: string;
   content: string;
   slug: string;
+  summary: string | null;
 }
 
 export type Post =
@@ -24,8 +25,8 @@ export type Post =
   >
   & {
     user: PostSchema["user_created"];
-    created: PostSchema["user_created"];
-    modified: Required<PostSchema["user_updated"]>;
+    created: PostSchema["date_created"];
+    modified: Required<PostSchema["date_created"]>;
     title: PostSchema["Title"];
   };
 

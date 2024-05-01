@@ -1,13 +1,22 @@
 import { calculateSourceSet, getAsset2 } from "../lib/images/index.ts";
 
 export default function Image(
-  { href, width, height, text, title, placeholderHref }: {
+  {
+    href,
+    width,
+    height,
+    text,
+    title,
+    placeholderHref,
+    className = "opacity-0 transition-opacity duration-500",
+  }: {
     href: string;
     width: number;
     height: number;
     text: string;
     title?: string;
     placeholderHref?: string;
+    className?: string;
   },
 ) {
   return (
@@ -34,7 +43,7 @@ export default function Image(
           />
         ))}
         <img
-          className="opacity-0 transition-opacity duration-500"
+          className={className}
           // deno-lint-ignore ban-ts-comment
           // @ts-ignore
           onLoad="this.style.opacity=1"

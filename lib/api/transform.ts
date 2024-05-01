@@ -10,10 +10,11 @@ export async function toPost(
       ? await transform(post.content)
       : post.content,
     user: post.user_created,
-    created: post.user_created,
-    modified: post.user_updated ?? post.user_created,
+    created: post.date_created,
+    modified: post.date_updated ?? post.date_created,
     slug: post.slug,
     id: post.id,
     status: post.status,
+    summary: post.summary,
   };
 }

@@ -10,7 +10,7 @@ export async function handler(
   if (!cacheRoutes.includes(ctx.route)) return ctx.next();
 
   const result = await ctx.next();
-  result.headers.set("Cache-control", "max-age=300");
+  //result.headers.set("Cache-control", "max-age=300");
 
   const reader = result.body?.getReader();
 

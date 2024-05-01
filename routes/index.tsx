@@ -13,11 +13,11 @@ export default function Home() {
         <p className="text-body-light mb-l">
           When improving a skill most of the gain comes from the first 80% of
           progress, while most of the time goes into the last 20% percent. This
-          blog is a homage to those first 80%.</p>
-        <p  className="text-body-light">
-          I plan to improve this website one hastily writen blog
-          post at a time. And hopefully I might just become a better writer in
-          the process.
+          blog is a homage to those first 80%.
+        </p>
+        <p className="text-body-light">
+          I plan to improve this website one hastily writen blog post at a time.
+          And hopefully I might just become a better writer in the process.
         </p>
       </article>
     </main>

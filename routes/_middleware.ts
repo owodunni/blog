@@ -1,16 +1,12 @@
 import { FreshContext } from "$fresh/server.ts";
 
-const cacheRoutes = ["/posts", "/posts/:slug", "/"];
-
 export async function handler(
   req: Request,
   ctx: FreshContext,
 ) {
   if (!req.headers.get("Accept")?.includes("text/html")) return ctx.next();
-  if (!cacheRoutes.includes(ctx.route)) return ctx.next();
 
   const result = await ctx.next();
-  //result.headers.set("Cache-control", "max-age=300");
 
   const reader = result.body?.getReader();
 

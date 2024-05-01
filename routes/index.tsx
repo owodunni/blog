@@ -36,7 +36,7 @@ export default function Home({ data }: PageProps<Posts>) {
             className="w-32 h-32 sm:w-xxl sm:h-xxl rounded-full"
           />
           <p className="text-body-light">
-            I am a Web developer from Sweden and a family man.
+            A developer from Sweden.
           </p>
         </div>
       </header>

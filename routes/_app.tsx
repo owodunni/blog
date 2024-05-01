@@ -9,7 +9,7 @@ export default function App({ Component }: PageProps) {
         <title>Alexander Poole Jardén</title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
-      <body className="p-m sm:px-0 py-xl text-[18px] sm:text-[16px] bg-slate-100">
+      <body className="p-m sm:px-0 py-xl text-[18px] sm:text-[16px] bg-stone-100">
         <Component />
       </body>
     </html>

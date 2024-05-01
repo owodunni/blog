@@ -31,27 +31,29 @@ export default function Home({ data }: PageProps<Posts>) {
           Alexander Poole Jardén
         </h1>
         <div className="flex space-x-m items-center py-m">
-          <img
-            src={"https://assets.jardoole.xyz/assets/ba664d07-798c-47d5-96fe-8fee6e521741.jpg?width=200&height=200&quality=0.8&format=webp"}
-            className="w-32 h-32 sm:w-xxl sm:h-xxl rounded-full"
-          />
+          <a href="https://assets.jardoole.xyz/assets/9ad55473-d36d-4613-a4b5-e5219dc4caac.jpg">
+            <img
+              src={"https://assets.jardoole.xyz/assets/9ad55473-d36d-4613-a4b5-e5219dc4caac.jpg?width=200&height=200&quality=0.8&format=webp"}
+              className="w-28 h-28 rounded-full"
+            />
+          </a>
           <p className="text-body-light">
             A developer from Sweden.
           </p>
         </div>
       </header>
-      <article className="mb-xl">
-        <p className="text-body-light mb-l">
+      <article className="article">
+        <p>
           This blog is a learning experience. For the longest time I have been
           meaning to improve my writing. By focusing on quantity and not quality
           I hope to become a better writier.
         </p>
-        <p className="text-body-light mb-l">
+        <p>
           When improving a skill most of the gain comes from the first 80% of
           progress, while most of the time goes into the last 20% percent. This
           blog is a homage to those first 80%.
         </p>
-        <p className="text-body-light">
+        <p>
           I plan to improve this website one hastily writen blog post at a time.
           And hopefully I might just become a better writer in the process.
         </p>

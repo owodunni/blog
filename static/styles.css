@@ -1,3 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.article {
+ p {
+  @apply text-body-light my-m
+ }
+ article {
+  @apply mb-xl
+ }
+
+ .hljs {
+   @apply rounded my-l
+ }
+
+ a {
+  @apply underline
+ }
+
+  h1 {
+    @apply text-titleA-light mb-xs mt-m
+  }
+
+  h2 {
+    @apply text-titleB-light mb-xs mt-m
+  }
+
+  h3 {
+    @apply text-titleC-light
+  }
+
+  ol {
+    @apply  my-m
+  }
+
+  ul {
+    @apply my-m ps-xl
+  }
+
+  blockquote {
+    @apply my-m ps-0 pe-l text-body-light
+  }
+
+  figcaption {
+    @apply  my-m
+  }
+}
+
+  .article h3 {
+    margin-top: .786096em;
+    margin-bottom: .345984em;
+  }
+
+  .article ul {
+    line-height: 1.618;
+  }
+
+  .article figcaption {
+    font-size: .786em;
+    line-height: 1.618;
+  }

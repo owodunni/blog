@@ -66,13 +66,12 @@ marked.use({
 });
 
 const cssFile = join(Deno.cwd(), "static/atom-one-light.css");
-let css = "";
 
 export const handler: Handlers<{ post: Post; css: string }> = {
   async GET(_req, ctx) {
     const client = directus(fetch);
 
-    css = css || await Deno.readTextFile(cssFile);
+    const css = await Deno.readTextFile(cssFile);
 
     const slug = ctx.params.slug;
     const data = await client.request(
@@ -97,27 +96,26 @@ export const handler: Handlers<{ post: Post; css: string }> = {
   },
 };
 
-export default function Post({ data }: PageProps<{ post: Post; css: string }>) {
-  const date = new Date(data.post.modified).toLocaleString("en-US", {
+export default function Post(
+  { data: { post: { modified, title, content }, css } }: PageProps<
+    { post: Post; css: string }
+  >,
+) {
+  const date = new Date(modified).toLocaleString("en-US", {
     year: "numeric",
     month: "long",
     day: "2-digit",
   });
-  const article = `<header>
-<h3><time dateTime={modified} className="text-subheading-light">${date}</time></h3>
-<h1>${data.post.title}</h1>
-</header>
-${data.post.content}`;
 
   return (
     <>
       <Head>
-        <style>{data.css}</style>
+        <style>{css}</style>
       </Head>
       <main className="max-w-xl mx-auto">
-        <header className="relative flex flex-col items-center space-y-xs">
+        <nav className="relative flex flex-col items-center space-y-xs mb-l">
           <img
-            src={"https://assets.jardoole.xyz/assets/ba664d07-798c-47d5-96fe-8fee6e521741.jpg?width=200&height=200&quality=0.8&format=webp"}
+            src={"https://assets.jardoole.xyz/assets/9ad55473-d36d-4613-a4b5-e5219dc4caac.jpg?width=200&height=200&quality=0.8&format=webp"}
             className="w-16 h-16 sm:w-xl sm:h-xl rounded-full"
           />
           <a
@@ -129,10 +127,16 @@ ${data.post.content}`;
           <h2 className="text-titleC-light">
             Alexander Poole Jardén
           </h2>
+        </nav>
+        <header>
+          <time dateTime={modified} className="text-subheading-light mb-s">
+            {date}
+          </time>
+          <h1 className="text-titleA-light mb-m">{title}</h1>
         </header>
         <article
-          className="prose"
-          dangerouslySetInnerHTML={{ __html: article }}
+          className="article"
+          dangerouslySetInnerHTML={{ __html: content }}
         />
       </main>
     </>

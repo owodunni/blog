@@ -3,50 +3,50 @@
 @tailwind utilities;
 
 @layer utilities {
-.article {
- p {
-  @apply text-body-light my-m
- }
- article {
-  @apply mb-xl
- }
+  .article {
+   p {
+    @apply text-body-light my-m
+   }
+   article {
+    @apply mb-xl
+   }
 
- .hljs {
-   @apply rounded my-l
- }
+   .hljs {
+     @apply rounded my-l bg-stone-100 dark:bg-slate-900
+   }
 
- a {
-  @apply underline
- }
+   a {
+    @apply underline
+   }
 
-  h1 {
-    @apply text-titleA-light mb-xs mt-m
+    h1 {
+      @apply text-titleA-light mb-xs mt-m
+    }
+
+    h2 {
+      @apply text-titleB-light mb-xs mt-m
+    }
+
+    h3 {
+      @apply text-titleC-light
+    }
+
+    ol {
+      @apply  my-m
+    }
+
+    ul {
+      @apply my-m ps-xl
+    }
+
+    blockquote {
+      @apply my-m ps-0 pe-l text-body-light
+    }
+
+    figcaption {
+      @apply  my-m
+    }
   }
-
-  h2 {
-    @apply text-titleB-light mb-xs mt-m
-  }
-
-  h3 {
-    @apply text-titleC-light
-  }
-
-  ol {
-    @apply  my-m
-  }
-
-  ul {
-    @apply my-m ps-xl
-  }
-
-  blockquote {
-    @apply my-m ps-0 pe-l text-body-light
-  }
-
-  figcaption {
-    @apply  my-m
-  }
-}
 
   .article h3 {
     margin-top: .786096em;
@@ -60,5 +60,9 @@
   .article figcaption {
     font-size: .786em;
     line-height: 1.618;
+  }
+
+  time {
+    @apply dark:text-slate-400 text-zinc-600 mb-s text-subheading-light
   }
 }

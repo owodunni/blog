@@ -65,7 +65,7 @@ marked.use({
   },
 });
 
-const cssFile = join(Deno.cwd(), "static/atom-one-light.css");
+const cssFile = join(Deno.cwd(), "static/atom-one.css");
 
 export const handler: Handlers<{ post: Post; css: string }> = {
   async GET(_req, ctx) {
@@ -124,12 +124,12 @@ export default function Post(
             className="absolute inset-0 z-10"
           >
           </a>
-          <h2 className="text-titleC-light">
+          <h2 className="text-titleC-light dark:text-slate-400 text-zinc-600">
             Alexander Poole Jardén
           </h2>
         </nav>
         <header>
-          <time dateTime={modified} className="text-subheading-light mb-s">
+          <time dateTime={modified}>
             {date}
           </time>
           <h1 className="text-titleA-light mb-m">{title}</h1>

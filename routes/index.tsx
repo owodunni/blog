@@ -27,7 +27,7 @@ export default function Home({ data }: PageProps<Posts>) {
   return (
     <main className="mx-auto max-w-2xl ">
       <header>
-        <h1 className="text-display2-light sm:text-display1-light">
+        <h1 className="text-display2-light sm:text-display1-light dark:text-slate-300 text-zinc-700">
           Alexander Poole Jardén
         </h1>
         <div className="flex space-x-m items-center py-m">
@@ -37,7 +37,7 @@ export default function Home({ data }: PageProps<Posts>) {
               className="w-28 h-28 rounded-full"
             />
           </a>
-          <p className="text-body-light">
+          <p className="text-body-light dark:text-slate-300 text-zinc-700">
             A developer from Sweden.
           </p>
         </div>
@@ -78,9 +78,9 @@ function PostCard(
     day: "2-digit",
   });
   return (
-    <article className="relative flex flex-col items-center p-m border rounded">
+    <article className="relative flex flex-col items-center p-m border rounded border-stone-400 dark:border-slate-600">
       <header className="flex flex-col items-center">
-        <time dateTime={modified} className="text-subheading-light mb-s">
+        <time dateTime={modified}>
           {date}
         </time>
         <h2 className="text-titleC-light">{title}</h2>

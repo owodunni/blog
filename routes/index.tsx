@@ -78,7 +78,7 @@ function PostCard(
     day: "2-digit",
   });
   return (
-    <article className="relative flex flex-col items-center p-m border rounded border-stone-400 dark:border-slate-600">
+    <article className="relative flex flex-col items-center p-m border rounded dark:border-slate-600">
       <header className="flex flex-col items-center">
         <time dateTime={modified}>
           {date}

@@ -36,7 +36,7 @@
     }
 
     ul {
-      @apply my-m ps-xl
+      @apply my-m ps-m
     }
 
     blockquote {
@@ -54,6 +54,7 @@
   }
 
   .article ul {
+    list-style-type: disc;
     line-height: 1.618;
   }
 

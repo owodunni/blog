@@ -29,7 +29,8 @@ export default function Image(
             width={width.toString()}
             height={height.toString()}
             src={placeholderHref}
-            loading="eager"
+            loading="lazy"
+            decoding="auto"
             alt={text}
             {...(title && { title })}
           />
